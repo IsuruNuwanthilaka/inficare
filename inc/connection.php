@@ -4,12 +4,11 @@
 	$dbuser = 'xpigpcxaxfdfwh';
 	$dbpass = '41219beab15ee40a8862f19f1722c473128935f04b7c9daa41290440d6ca8b48';
 	$dbname = 'dcu7j31bguguik';
-	$dbport = 5432;
+	//$dbport = 5432;
 
-	$connection = mysqli_connect($dbhost,$dbuser,$dbpass, $dbname,$dbport);
+	$connection = mysqli_connect($dbhost,$dbuser,$dbpass, $dbname);
 
 	if (mysqli_connect_errno()) {
-		//die('Database connection failed'.mysqli_connect_error());
-		echo '<p>connection failed</p>';
+		die('Database connection failed'.mysqli_connect_error());
 	}
  ?>
