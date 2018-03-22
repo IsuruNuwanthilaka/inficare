@@ -77,3 +77,4 @@ if (isset($_POST['save'])){
 
 </body>
 </html>
+<?php pg_close($connection);?>

@@ -57,3 +57,4 @@
 
 </body>
 </html>
+<?php pg_close($connection);?>

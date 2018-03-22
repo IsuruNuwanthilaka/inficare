@@ -11,3 +11,4 @@ session_destroy();
 
 header('Location: index.php?logout=yes');
 ?>
+<?php pg_close($connection);?>
