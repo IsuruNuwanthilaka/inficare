@@ -1,0 +1,10 @@
+{
+    "name": "root/ums",
+    "authors": [
+        {
+            "name": "isuru",
+            "email": "isurunuwanthilaka@gmail.com"
+        }
+    ],
+    "require": {}
+}
