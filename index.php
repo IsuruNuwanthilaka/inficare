@@ -33,11 +33,13 @@ require_once('inc/connection.php');
 	 				$user = pg_fetch_assoc($result_set);
 	 				$_SESSION['id'] = $user['id'];
 	 				$_SESSION['first_name'] = $user['first_name'];
+
 	 				$query = "UPDATE userdb SET last_login = NOW()";
 	 				$query .= "WHERE id = {$_SESSION['id']} LIMIT 1";
 	 				$result_set = pg_query($connection,$query);
 	 				if (!$result_set) {
-	 					die('DAtabase update failed');
+	 					echo $_SESSION['id'];
+	 					die('Database update failed');
 	 				}
 	 				header('Location: users.php');
 	 			} else {
