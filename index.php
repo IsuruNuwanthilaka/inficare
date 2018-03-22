@@ -34,8 +34,7 @@ require_once('inc/connection.php');
 	 				$_SESSION['id'] = $user['id'];
 	 				$_SESSION['first_name'] = $user['first_name'];
 
-	 				$query = "UPDATE userdb SET last_login = NOW()";
-	 				$query .= "WHERE id = {$_SESSION['id']} LIMIT 1";
+	 				$query = "UPDATE userdb SET last_login = now()::timestamp WHERE id = {$_SESSION['id']} LIMIT 1";
 	 				$result_set = pg_query($connection,$query);
 	 				if (!$result_set) {
 	 					echo $_SESSION['id'];
