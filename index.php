@@ -19,23 +19,23 @@ require_once('inc/connection.php');
 	 	}
 
 	 	if (empty($errors)) {
-	 		$email = mysqli_real_escape_string($connection,$_POST['email']);
-	 		$password = mysqli_real_escape_string($connection,$_POST['password']);
+	 		$email = pg_escape_string($connection,$_POST['email']);
+	 		$password = pg_escape_string($connection,$_POST['password']);
 	 		$hashed_password = sha1($password);
 
 	 		$query = "SELECT * FROM userdb
 	 					WHERE email = '{$email}'
 	 					AND password = '{$hashed_password}' LIMIT 1 ";
-	 		$result_set = mysqli_query($connection,$query);
+	 		$result_set = pg_query($connection,$query);
 
 	 		if ($result_set) {
-	 			if (mysqli_num_rows($result_set)==1) {
-	 				$user = mysqli_fetch_assoc($result_set);
+	 			if (pg_num_rows($result_set)==1) {
+	 				$user = pg_fetch_row($result_set);
 	 				$_SESSION['id'] = $user['id'];
 	 				$_SESSION['first_name'] = $user['first_name'];
 	 				$query = "UPDATE userdb SET last_login = NOW()";
 	 				$query .= "WHERE id = {$_SESSION['id']} LIMIT 1";
-	 				$result_set = mysqli_query($connection,$query);
+	 				$result_set = pg_query($connection,$query);
 	 				if (!$result_set) {
 	 					die('DAtabase update failed');
 	 				}
@@ -94,4 +94,4 @@ require_once('inc/connection.php');
 </body>
 </html>
 
-<?php mysqli_close($connection);?>
+<?php pg_close($connection);?>

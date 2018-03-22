@@ -7,10 +7,10 @@
 
 	$user_list =" ";
 	$query = "SELECT * FROM userdb WHERE is_deleted = 0 ORDER BY first_name";
-	$users = mysqli_query($connection,$query);
+	$users = pg_query($connection,$query);
 
 	if ($users) {
-		while ($user = mysqli_fetch_assoc($users)) {
+		while ($user = pg_fetch_row($users)) {
 			$user_list .= "<tr>";
 			$user_list .= "<td>{$user['first_name']}</td>";
 			$user_list .= "<td>{$user['last_name']}</td>";
