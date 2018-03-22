@@ -23,7 +23,7 @@ require_once('inc/connection.php');
 	 		$password = mysqli_real_escape_string($connection,$_POST['password']);
 	 		$hashed_password = sha1($password);
 
-	 		$query = "SELECT * FROM user
+	 		$query = "SELECT * FROM userdb
 	 					WHERE email = '{$email}'
 	 					AND password = '{$hashed_password}' LIMIT 1 ";
 	 		$result_set = mysqli_query($connection,$query);
@@ -33,7 +33,7 @@ require_once('inc/connection.php');
 	 				$user = mysqli_fetch_assoc($result_set);
 	 				$_SESSION['id'] = $user['id'];
 	 				$_SESSION['first_name'] = $user['first_name'];
-	 				$query = "UPDATE user SET last_login = NOW()";
+	 				$query = "UPDATE userdb SET last_login = NOW()";
 	 				$query .= "WHERE id = {$_SESSION['id']} LIMIT 1";
 	 				$result_set = mysqli_query($connection,$query);
 	 				if (!$result_set) {

@@ -6,7 +6,7 @@
 	} 
 
 	$user_list =" ";
-	$query = "SELECT * FROM user WHERE is_deleted = 0 ORDER BY first_name";
+	$query = "SELECT * FROM userdb WHERE is_deleted = 0 ORDER BY first_name";
 	$users = mysqli_query($connection,$query);
 
 	if ($users) {
