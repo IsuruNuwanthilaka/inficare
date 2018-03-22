@@ -68,7 +68,7 @@ require_once('inc/connection.php');
 				<?php
 					if (isset($errors) && !empty($errors))
 					 {
-						echo '<p class = "error" > Invalid Username / Password</p>';
+						echo '<p class = "error" > $errors </p>';
 
 					}
 				  ?>
