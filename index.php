@@ -68,7 +68,7 @@ require_once('inc/connection.php');
 				<?php
 					if (isset($errors) && !empty($errors))
 					 {
-					 	echo $errors;
+					 	echo $errors[0];
 						echo '<p class = "error" > $errors</p>';
 
 					}
