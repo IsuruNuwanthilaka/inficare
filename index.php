@@ -37,7 +37,6 @@ require_once('inc/connection.php');
 	 				$query = "UPDATE userdb SET last_login = now()::timestamp WHERE id = {$_SESSION['id']}";
 	 				$result_set = pg_query($connection,$query);
 	 				if (!$result_set) {
-	 					echo $_SESSION['id'];
 	 					die('Database update failed');
 	 				}
 	 				header('Location: users.php');
@@ -69,8 +68,7 @@ require_once('inc/connection.php');
 				<?php
 					if (isset($errors) && !empty($errors))
 					 {
-					 	echo $errors[0];
-						echo '<p class = "error" > $errors</p>';
+						echo '<p class = "error" > Invalid Credentials</p>';
 
 					}
 				  ?>
