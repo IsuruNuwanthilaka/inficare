@@ -4,7 +4,7 @@
 	$dbuser = 'xpigpcxaxfdfwh';
 	$dbpass = '41219beab15ee40a8862f19f1722c473128935f04b7c9daa41290440d6ca8b48';
 	$dbname = 'dcu7j31bguguik';
-	$dbport = '5432';
+	$dbport = 5432;
 
 	$connection = mysqli_connect($dbhost,$dbuser,$dbpass, $dbname,$dbport);
 
