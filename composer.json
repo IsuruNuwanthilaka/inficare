@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "root/ums",
     "authors": [
         {
@@ -7,4 +8,7 @@
         }
     ],
     "require": {}
+=======
+    
+>>>>>>> 201069a1c5580e54154b619fcc7c4ebfb41e26aa
 }
