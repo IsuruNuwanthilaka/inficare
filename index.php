@@ -26,7 +26,7 @@ require_once('inc/connection.php');
 	 		$query = "SELECT * FROM userdb
 	 					WHERE email = '{$email}'
 	 					AND password = '{$hashed_password}' LIMIT 1 ";
-	 		$result_set = pg_query($connection,$query);
+	 		$result_set = pg_execute($connection,$query);
 
 	 		if ($result_set) {
 	 			if (pg_num_rows($result_set)==1) {
@@ -35,7 +35,7 @@ require_once('inc/connection.php');
 	 				$_SESSION['first_name'] = $user['first_name'];
 	 				$query = "UPDATE userdb SET last_login = NOW()";
 	 				$query .= "WHERE id = {$_SESSION['id']} LIMIT 1";
-	 				$result_set = pg_query($connection,$query);
+	 				$result_set = pg_execute($connection,$query);
 	 				if (!$result_set) {
 	 					die('DAtabase update failed');
 	 				}
