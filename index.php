@@ -40,7 +40,7 @@ require_once('inc/connection.php');
 	 					echo $_SESSION['id'];
 	 					die('Database update failed');
 	 				}
-	 				header('Location: users.php');
+	 				header('Location: home.php');
 	 			} else {
 	 				$errors[] ="Invalid Username or Password"; 
 	 			}
