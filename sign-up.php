@@ -56,18 +56,18 @@ $errors=array();
 						echo "value = {$_POST['confirm_password']}";
 					}?> required>
 				</p>
+
 				<?php
 				if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
-					echo "<p class = 'errormsg'> </label>Password not matched. Re-enter passwords </p>";
-				}else if (isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
+					echo '<p class = "errormsg"> </label>Password not matched. Re-enter passwords </p>';
+				}elseif(isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
 					$first_name = pg_real_escape_string($connection,$_POST['first_name']);
 					$last_name = pg_real_escape_string($connection,$_POST['last_name']);
 					$password = pg_real_escape_string($connection,$_POST['password']);
 					$password = sha1($password);
 					$last_login = '0000-00-00 00:00:00';
 					$email = pg_real_escape_string($connection,$_POST['email']);
-					$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted,last_login) ";
-					$query .="VALUES ({$first_name},{$last_name},{$email},{$password},0,{$last_login})";
+					$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted,last_login) VALUES({$first_name},{$last_name},{$email},{$password},0,{$last_login})";
 					$another_query = "SELECT * FROM userdb WHERE email = {$email} ";
 					$another_result = pg_query($connection,$another_query);
 					
@@ -76,20 +76,20 @@ $errors=array();
 						if (pg_num_rows($another_result)==0) {
 							$result = pg_query($connection,$query);
 							if ($result) {
-								echo "<p class = 'successmsg'> </label>Account created successfully. </p>";
+								echo '<p class = "successmsg"> </label>Account created successfully. </p>';
 								
 							} else {
-								echo "<p class = 'errormsg'> </label>Database Query Failed.</p>";	
+								echo '<p class = "errormsg"> </label>Database Query Failed.</p>';	
 							}
 						} else {
-							echo "<p class = 'successmsg'> </label>Account already exists.</p>";
+							echo '<p class = "successmsg"> </label>Account already exists.</p>';
 						}
 						
 					}else{
-						echo "<p class = 'errormsg'> </label>Database Query Failed.</p>";
+						echo '<p class = "errormsg"> </label>Database Query Failed.</p>';
 					}
 				}else{
-					echo "<p class = 'pinmsg' > </label> Complete above fields first. </p>";
+					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
 				}
 
 				
