@@ -65,9 +65,6 @@ if (isset($_POST['save'])){
 					<label for="">&nbsp</label>
 					<button type="submit" name="save"> Save</button>
 				</p>
-
-				<p><label for="">&nbsp</label><button type="submit" name="save">Save</button></p>
-
 			</form>
 		</div>
 	</main>

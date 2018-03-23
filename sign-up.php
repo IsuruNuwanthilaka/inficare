@@ -102,7 +102,7 @@ $errors=array();
  						$_SESSION['id'] = $user['id'];
  						$_SESSION['first_name'] = $user['first_name'];
 
- 						$query = "UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
+ 						$query = " UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
  						$result_set = pg_query($connection,$query);
  						if (!$result_set) {
  							die('Database update failed');
