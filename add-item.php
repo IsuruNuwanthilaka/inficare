@@ -9,10 +9,6 @@ if (isset($_POST['save'])){
 
 }
 
-
-
-
-
  ?>
 
 <?php 
@@ -36,18 +32,18 @@ if (isset($_POST['save'])){
 </head>
 <body>
 	<header>
-		<div class="appname"> User Management System</div>
+		<div class="appname"> Donation Management System</div>
 		<div class="loggedin"> Welcome <?php echo $_SESSION['first_name']; ?>! <a href="logout.php">Log Out</a></div>
 	</header>
 	<main>
-		<h1>Add New User<span><a href="users.php">< Back to Users List</a></span></h1>
+		<h1>Add New Item<span><a href="home.php">< Back to Item List</a></span></h1>
 		<?php 
 			if (!empty($errors)) {
-			echo errors[0];
+			echo $errors[0];
 		}
 		 ?>
-		<div class="adduser">
-			<form action="add-user.php" method="post" class="userform">
+		<div class="additem">
+			<form action="add-item.php" method="post" class="itemform">
 			
 				<p >
 					<label for="">First Name</label>
@@ -66,11 +62,12 @@ if (isset($_POST['save'])){
 					<input type="password" name="password_var" id="" required>
 				</p>
 				<p>
-					<label for="">&nbsp;</nav></label>
+					<label for="">&nbsp</label>
 					<button type="submit" name="save"> Save</button>
 				</p>
 
-				
+				<p><label for="">&nbsp</label><button type="submit" name="save">Save</button></p>
+
 			</form>
 		</div>
 	</main>
