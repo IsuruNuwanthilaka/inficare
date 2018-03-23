@@ -56,7 +56,15 @@ p.info{
 	padding: 10px;
 	font-size: 14px;
 }
+p.pinmsg{
+	background: #aaa;
+	color: black;
+	padding: 10px;
+	font-size: 16px;
+	text-align: center;
+	width: 700px;
 
+}
 p.success{
 	background: green;
 	color: white;
