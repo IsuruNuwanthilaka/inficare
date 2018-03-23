@@ -88,7 +88,7 @@ require_once('inc/connection.php');
 				</p>
 				<p>
 					 <button type="submit" name="submit">Log In</button>
-					 <label>sign up <a href="add-user.php">here</a> </label>
+					 <label>sign up <a href="sign-up.php">here</a> </label>
 				</p>
 			</fieldset>
 		</form>

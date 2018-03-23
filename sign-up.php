@@ -14,7 +14,7 @@ $errors=array();
 <body>
 	<header>
 		<div class="appname"> User Management System</div>
-		<div class="loggedin"> Welcome user!<a href="index.php">Sign in</a></div>
+		<div class="sign-up"> Welcome user!<a href="index.php">Sign in</a></div>
 	</header>
 	<main>
 		<div class="adduser">
