@@ -5,7 +5,65 @@
 $email='';
 $errors=array();
  ?>
+<?php
+if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
+	echo 'Password not matched. Re-enter passwords'; //"<p class = 'errormsg'> </label>Password not matched. Re-enter passwords </p>";
+}elseif(isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
+	$first_name = pg_real_escape_string($connection,$_POST['first_name']);
+	$last_name = pg_real_escape_string($connection,$_POST['last_name']);
+	$password = pg_real_escape_string($connection,$_POST['password']);
+	$password = sha1($password);
+	$last_login = '0000-00-00 00:00:00';
+	$email = pg_real_escape_string($connection,$_POST['email']);
+	$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted,last_login) ";
+	$query .="VALUES ({$first_name},{$last_name},{$email},{$password},0,{$last_login) ";
+	$another_query = "SELECT * FROM userdb WHERE email = '{$email}'";
+	$another_result = pg_query($connection,$another_query);
+	
+	if($another_result){
+		
+		if (pg_num_rows($another_result)==0) {
+			$result = pg_query($connection,$query);
+			if ($result) {
+				echo 'Account created successfully.';//"<p class = 'successmsg'> </label>Account created successfully. </p>";
+				
+			} else {
+				echo 'Database Query Failed.';//"<p class = 'errormsg'> </label>Database Query Failed.</p>";	
+			}
+		} else {
+			echo 'Account already exists.';// "<p class = 'successmsg'> </label>Account already exists.</p>";
+		}
+		
+	}else{
+		echo 'Database Query Failed.';//"<p class = 'errormsg'> </label>Database Query Failed.</p>";
+	}
+}else{
+	echo 'Complete above fields first.';//"<p class = 'pinmsg' > </label> Complete above fields first. </p>";
+}
 
+
+	$query = "SELECT * FROM userdb WHERE email = {$email} AND password = {$password} ";
+	$result_set = pg_query($connection,$query);
+
+	if ($result_set) {
+		if (pg_num_rows($result_set)==1) {
+			$user = pg_fetch_assoc($result_set);
+			$_SESSION['id'] = $user['id'];
+			$_SESSION['first_name'] = $user['first_name'];
+
+			$query = " UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
+			$result_set = pg_query($connection,$query);
+			if (!$result_set) {
+				die('Database update failed');
+			}
+		} else {
+			$errors[] ="Invalid Username or Password"; 
+	}
+
+	}else{
+		$errors[] = "Database query failed";
+	}
+?>
 
 
 
@@ -72,66 +130,5 @@ $errors=array();
 </body>
 </html>
 
-<?php
-if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
-	echo "<p class = 'errormsg'> </label>Password not matched. Re-enter passwords </p>";
-}else if (isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
-	$first_name = pg_real_escape_string($connection,$_POST['first_name']);
-	$last_name = pg_real_escape_string($connection,$_POST['last_name']);
-	$password = pg_real_escape_string($connection,$_POST['password']);
-	$password = sha1($password);
-	$last_login = '0000-00-00 00:00:00';
-	$email = pg_real_escape_string($connection,$_POST['email']);
-	$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted,last_login)";
-	$query .="VALUES ('{$first_name}','{$last_name}','{$email}','{$password}',0,'{$last_login}')";
-	$another_query = "SELECT * FROM userdb WHERE email = '{$email}'";
-	$another_result = pg_query($connection,$another_query);
-	
-	if($another_result){
-		
-		if (pg_num_rows($another_result)==0) {
-			$result = pg_query($connection,$query);
-			if ($result) {
-				echo "<p class = 'successmsg'> </label>Account created successfully. </p>";
-				
-			} else {
-				echo "<p class = 'errormsg'> </label>Database Query Failed.</p>";	
-			}
-		} else {
-			echo "<p class = 'successmsg'> </label>Account already exists.</p>";
-		}
-		
-	}else{
-		echo "<p class = 'errormsg'> </label>Database Query Failed.</p>";
-	}
-}else{
-	echo "<p class = 'pinmsg' > </label> Complete above fields first. </p>";
-}
-
-
-$query = "SELECT * FROM userdb WHERE email = '{$email}' AND password = '{$password}' ";
-	$result_set = pg_query($connection,$query);
-
-	if ($result_set) {
-		if (pg_num_rows($result_set)==1) {
-			$user = pg_fetch_assoc($result_set);
-			$_SESSION['id'] = $user['id'];
-			$_SESSION['first_name'] = $user['first_name'];
-
-			$query = " UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
-			$result_set = pg_query($connection,$query);
-			if (!$result_set) {
-				die('Database update failed');
-			}
-		} else {
-			$errors[] ="Invalid Username or Password"; 
-	}
-
-	}else{
-		$errors[] = "Database query failed";
-	}
-?>
-<?php pg_close($connection);
-echo $errors[0];
-?>
+<?php pg_close($connection); ?>
 
