@@ -23,20 +23,21 @@ require_once('inc/connection.php');
 	 		$password = pg_escape_string($connection,$_POST['password']);
 	 		$hashed_password = sha1($password);
 
-	 		$query = "SELECT * FROM userdb
+	 		$query = "SELECT * FROM user
 	 					WHERE email = '{$email}'
 	 					AND password = '{$hashed_password}' LIMIT 1 ";
 	 		$result_set = pg_query($connection,$query);
 
 	 		if ($result_set) {
 	 			if (pg_num_rows($result_set)==1) {
-	 				$user = pg_fetch_assoc($result_set);
+	 				$user = mysqli_fetch_assoc($result_set);
 	 				$_SESSION['id'] = $user['id'];
 	 				$_SESSION['first_name'] = $user['first_name'];
 
-	 				$query = "UPDATE userdb SET last_login = now()::timestamp WHERE id = {$_SESSION['id']}";
+	 				$query = "UPDATE user SET last_login = now() WHERE id = {$_SESSION['id']}";
 	 				$result_set = pg_query($connection,$query);
 	 				if (!$result_set) {
+	 					echo $_SESSION['id'];
 	 					die('Database update failed');
 	 				}
 	 				header('Location: users.php');
@@ -68,7 +69,7 @@ require_once('inc/connection.php');
 				<?php
 					if (isset($errors) && !empty($errors))
 					 {
-						echo '<p class = "error" > Invalid Credentials</p>';
+						echo '<p class = "error" > Invalid Username or Password </p>';
 
 					}
 				  ?>
@@ -87,6 +88,7 @@ require_once('inc/connection.php');
 				</p>
 				<p>
 					 <button type="submit" name="submit">Log In</button>
+					 <label>sign up <a href="add-user.php">here</a> </label>
 				</p>
 			</fieldset>
 		</form>
