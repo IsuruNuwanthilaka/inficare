@@ -56,6 +56,11 @@ $errors=array();
 						echo "value = {$_POST['confirm_password']}";
 					}?> required>
 				</p>
+				<p>
+					<label for="">&nbsp </label>
+					<button type="submit" name="save">Save</button>
+				</p>
+				<p><label for=""></label><a href="home.php"> Next Home Page > </a></p>
 
 				<?php
 				if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
@@ -88,38 +93,29 @@ $errors=array();
 					}else{
 						echo '<p class = "errormsg"> </label>Database Query Failed.</p>';
 					}
+
+					$query = "SELECT * FROM userdb WHERE email = {$email} AND password = {$password} LIMIT 1 ";
+					$result_set = pg_query($connection,$query);
+
+					if ($result_set) {
+						if (pg_num_rows($result_set)==1) {
+							$user = pg_fetch_assoc($result_set);
+							$_SESSION['id'] = $user['id'];
+							$_SESSION['first_name'] = $user['first_name'];
+							$query = "UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
+							$result_set = pg_query($connection,$query);
+							if (!$result_set) {
+								die('Database update failed');
+							}else{
+								$errors[] ="Invalid Username or Password";}
+						}else{
+							$errors[] = "Database query failed";
+						}
+					}
 				}else{
 					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
 				}
-
-				
-				$query = "SELECT * FROM userdb WHERE email = {$email} AND password = {$password} LIMIT 1 ";
- 				$result_set = pg_query($connection,$query);
-
- 				if ($result_set) {
- 					if (pg_num_rows($result_set)==1) {
- 						$user = pg_fetch_assoc($result_set);
- 						$_SESSION['id'] = $user['id'];
- 						$_SESSION['first_name'] = $user['first_name'];
-
- 						$query = "UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
- 						$result_set = pg_query($connection,$query);
- 						if (!$result_set) {
- 							die('Database update failed');
- 						}
- 					} else {
- 						$errors[] ="Invalid Username or Password"; 
- 				}
- 			
- 				}else{
- 					$errors[] = "Database query failed";
-		 		}
 				?>
-				<p>
-					<label for="">&nbsp </label>
-					<button type="submit" name="save">Save</button>
-				</p>
-				<p><label for=""></label><a href="home.php"> Next Home Page > </a></p>
 				
 								
 			</form>
@@ -129,5 +125,6 @@ $errors=array();
 
 </body>
 </html>
+
 
 <?php pg_close($connection);?>
