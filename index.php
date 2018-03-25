@@ -3,8 +3,7 @@ session_start();
 require_once('inc/connection.php');
 ?>
 <?php 
-$query = "INSERT INTO userdb (first_name)
-	VALUES ('Paul') ";
+$query = "INSERT INTO userdb (first_name,last_name,email,password,is_deleted,last_login) VALUES ('Paul','John','isu@isuru.com','uhuh',0,'0000-00-00 00:00:00')";
 $result = pg_query($connection,$query); ?>
 
 <?php
