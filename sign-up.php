@@ -119,7 +119,7 @@ $errors=array();
 								die('Database update failed');
 							}
 
-	 						header("Location: home.php?id = {$_SESSION['id']}");
+	 						header('Location: home.php');
 
 					}
 				}else{
