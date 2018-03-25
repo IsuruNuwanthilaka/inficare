@@ -78,9 +78,6 @@ $errors=array();
 					$password = sha1($password);
 					$last_login = '0000-00-00 00:00:00';
 					$email = pg_real_escape_string($connection,$_POST['email']);
-					$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted,last_login) VALUES({$first_name},{$last_name},{$email},{$password},0,{$last_login})";
-					$another_query = "SELECT * FROM userdb WHERE email = {$email} ";
-					$another_result = pg_query($connection,$another_query);
 				 	echo '<p class = "errormsg"> </label>Passwordmatched {$first_name} </p>';
 				 } ?>
 
