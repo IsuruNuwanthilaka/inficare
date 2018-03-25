@@ -115,10 +115,11 @@ $errors=array();
 							$errors[] = "Database query failed";
 						}
 					}
+				*/
 				}else{
 					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
 				}
-				*/
+				
 				?>
 				
 								
