@@ -84,7 +84,7 @@ $errors=array();
 							$query .= $last_name.'\',\'';
 							$query .= $email.'\',\'';
 							$query .= $password.'\',\'';
-							$query .='0000-00-00 00:00:00'.'\',';
+							$query .='2018-03-22 17:05:12.758687'.'\',';
 							$query .= '0)';
 							echo $query;
 							$result = pg_query($connection,$query);
