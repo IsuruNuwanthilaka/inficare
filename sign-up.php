@@ -62,11 +62,21 @@ $errors=array();
 				</p>
 				<p><label for=""></label><a href="home.php"> Next Home Page > </a></p>
 
-				<?php
 				
+				<?php 
 				if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
 					echo '<p class = "errormsg"> </label>Password not matched. Re-enter passwords </p>';
 				}
+				?>
+				
+				<?php 
+
+				if ($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
+				 	echo '<p class = "errormsg"> </label>Passwordmatched </p>';
+				 } ?>
+
+
+				<?php
 				/*
 				elseif(isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
 					$first_name = pg_real_escape_string($connection,$_POST['first_name']);
