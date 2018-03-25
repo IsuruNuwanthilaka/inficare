@@ -75,7 +75,7 @@ $errors=array();
 					
 					$another_query = "SELECT * FROM userdb WHERE email = '{$email}' ";
 					$another_result = pg_query($connection,$another_query);
-					
+					echo $first_name,$last_name,$password;
 					if($another_result){
 						
 						if (pg_num_rows($another_result)==0) {
