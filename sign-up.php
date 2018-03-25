@@ -80,13 +80,13 @@ $errors=array();
 					if($another_result){
 						
 						if (pg_num_rows($another_result)==0) {
-							$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted,last_login) VALUES('{$first_name}','{$last_name}','{$email}','{$password}',0,'{$last_login}')";
+							$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted) VALUES({$first_name},{$last_name},{$email},{$password},0})";
 							$result = pg_query($connection,$query);
 							if ($result) {
 								echo '<p class = "successmsg"> </label>Account created successfully. </p>';
 								
 							} else {
-								echo '<p class = "errormsg"> </label>Database Query Failed.</p>';	
+								echo '<p class = "errormsg"> </label>Database Query Failed Found.</p>';	
 							}
 						} else {
 							echo '<p class = "successmsg"> </label>Account already exists.</p>';
