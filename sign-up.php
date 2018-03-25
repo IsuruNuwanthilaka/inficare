@@ -71,7 +71,6 @@ $errors=array();
 					$last_name = pg_escape_string($connection,$_POST['last_name']);
 					$password = pg_escape_string($connection,$_POST['password']);
 					$password = sha1($password);
-					$last_login = '0000-00-00 00:00:00';
 					$email = pg_escape_string($connection,$_POST['email']);
 					
 					$another_query = "SELECT * FROM userdb WHERE email = '{$email}' ";
@@ -80,7 +79,7 @@ $errors=array();
 					if($another_result){
 						
 						if (pg_num_rows($another_result)==0) {
-							$query = "INSERT INTO userdb(first_name,last_name,email,password,last_login,is_deleted) VALUES ('mihinadani','jayaweera','mihinadani@isumalabs.com','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','2018-03-22 12:25:59',0)";
+							$query = "INSERT INTO userdb(first_name,last_name,email,password,last_login,is_deleted) VALUES ('{$first_name}','{$last_name}','{$email}','{$password}','0000-00-00 00:00:00',0)";
 							$result = pg_query($connection,$query);
 							if ($result) {
 								echo '<p class = "successmsg"> </label>Account created successfully. </p>';
