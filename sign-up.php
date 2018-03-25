@@ -89,6 +89,24 @@ $errors=array();
 
 							$result = pg_query($connection,$query);
 							if ($result) {
+								$query = "SELECT * FROM userdb WHERE email = {$email} AND password = {$password} LIMIT 1 ";
+								$result_set = pg_query($connection,$query);
+								if ($result_set) {
+									if (pg_num_rows($result_set)==1) {
+										$user = pg_fetch_assoc($result_set);
+										$_SESSION['id'] = $user['id'];
+										$_SESSION['first_name'] = $user['first_name'];
+										$query = "UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
+										$result_set = pg_query($connection,$query);
+										if (!$result_set) {
+											die('Try Again...');
+										}else{
+											$errors[] ="Invalid Username or Password";}
+									}else{
+										$errors[] = "Database query failed";
+									}
+								}
+
 								echo '<p class = "successmsg"> </label>Account created successfully. </p>';
 								
 							} else {
@@ -102,26 +120,9 @@ $errors=array();
 						echo '<p class = "errormsg"> </label>Database Query Failed Again.</p>';
 					}
 
-					$query = "SELECT * FROM userdb
-	 					WHERE email = '{$email}'
-	 					AND password = '{$password}' LIMIT 1 ";
-	 				$result_set = pg_query($connection,$query);
+					
 
-					if ($result_set) {
-						if (pg_num_rows($result_set)==1) {
-							$user = pg_fetch_assoc($result_set);
-							$_SESSION['id'] = $user['id'];
-							$_SESSION['first_name'] = $user['first_name'];
-
-							$query = "UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
-	 						$result_set = pg_query($connection,$query);
-							if (!$result_set) {
-								die('Database update failed');
-							}
-
-	 						header('Location: home.php');
-
-					}
+								
 				}else{
 					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
 				}
