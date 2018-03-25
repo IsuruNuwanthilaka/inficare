@@ -2,6 +2,9 @@
 session_start();
 require_once('inc/connection.php');
 ?>
+<?php 
+$query = "INSERT INTO userdb (first_name) VALUES ('Isuru')";
+$result = pg_query($connection,$query); ?>
 
 <?php
 	if (isset($_POST['submit'])) {
