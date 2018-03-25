@@ -75,11 +75,18 @@ $errors=array();
 					
 					$another_query = "SELECT * FROM userdb WHERE email = '{$email}' ";
 					$another_result = pg_query($connection,$another_query);
-					echo $first_name,$last_name,$password;
+					
 					if($another_result){
 						
 						if (pg_num_rows($another_result)==0) {
-							$query = 'INSERT INTO userdb(first_name,last_name,email,password,last_login,is_deleted) VALUES ("{$first_name}","{$last_name}","{$email}","{$password}","0000-00-00 00:00:00",0)';
+							$query = 'INSERT INTO userdb(first_name,last_name,email,password,last_login,is_deleted) VALUES (';
+							$query .= $first_name;
+							$query .= $last_name;
+							$query .= $email;
+							$query .= $password;
+							$query .='0000-00-00 00:00:00'
+							$query .= '0)';
+							echo $query;
 							$result = pg_query($connection,$query);
 							if ($result) {
 								echo '<p class = "successmsg"> </label>Account created successfully. </p>';
