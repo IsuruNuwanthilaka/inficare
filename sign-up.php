@@ -80,11 +80,11 @@ $errors=array();
 						
 						if (pg_num_rows($another_result)==0) {
 							$query = 'INSERT INTO userdb(first_name,last_name,email,password,last_login,is_deleted) VALUES (';
-							$query .= $first_name;
-							$query .= $last_name;
-							$query .= $email;
-							$query .= $password;
-							$query .='0000-00-00 00:00:00';
+							$query .= $first_name.',';
+							$query .= $last_name.',';
+							$query .= $email.',';
+							$query .= $password.',';
+							$query .='0000-00-00 00:00:00'.',';
 							$query .= '0)';
 							echo $query;
 							$result = pg_query($connection,$query);
