@@ -67,7 +67,6 @@ $errors=array();
 				if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
 					echo '<p class = "errormsg"> </label>Password not matched. Re-enter passwords </p>';
 				}
-				/*
 				elseif(isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
 					$first_name = pg_real_escape_string($connection,$_POST['first_name']);
 					$last_name = pg_real_escape_string($connection,$_POST['last_name']);
@@ -115,10 +114,6 @@ $errors=array();
 							$errors[] = "Database query failed";
 						}
 					}
-				*/
-				}else{
-					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
-				}
 				
 				?>
 				
