@@ -62,35 +62,17 @@ $errors=array();
 				</p>
 				<p><label for=""></label><a href="home.php"> Next Home Page > </a></p>
 
+				<?php
 				
-				<?php 
 				if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
 					echo '<p class = "errormsg"> </label>Password not matched. Re-enter passwords </p>';
-				}
-				?>
-				
-				<?php 
-
-				if (isset($_POST['save']) && ($_POST['password'] == $_POST['confirm_password'])) {
+				}elseif(isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
 					$first_name = pg_escape_string($connection,$_POST['first_name']);
-					//$last_name = pg_real_escape_string($connection,$_POST['last_name']);
-					//$password = pg_real_escape_string($connection,$_POST['password']);
-					//$password = sha1($password);
-					//$last_login = '0000-00-00 00:00:00';
-					//$email = pg_real_escape_string($connection,$_POST['email']);
-				 	echo '<p class = "errormsg"> </label>Passwordmatched {$first_name} </p>';
-				 } ?>
-
-
-				<?php
-				/*
-				elseif(isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
-					$first_name = pg_real_escape_string($connection,$_POST['first_name']);
-					$last_name = pg_real_escape_string($connection,$_POST['last_name']);
-					$password = pg_real_escape_string($connection,$_POST['password']);
+					$last_name = pg_escape_string($connection,$_POST['last_name']);
+					$password = pg_escape_string($connection,$_POST['password']);
 					$password = sha1($password);
 					$last_login = '0000-00-00 00:00:00';
-					$email = pg_real_escape_string($connection,$_POST['email']);
+					$email = pg_escape_string($connection,$_POST['email']);
 					$query = "INSERT INTO userdb(first_name,last_name,email,password,is_deleted,last_login) VALUES({$first_name},{$last_name},{$email},{$password},0,{$last_login})";
 					$another_query = "SELECT * FROM userdb WHERE email = {$email} ";
 					$another_result = pg_query($connection,$another_query);
@@ -131,7 +113,9 @@ $errors=array();
 							$errors[] = "Database query failed";
 						}
 					}
-				*/
+				}else{
+					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
+				}
 				?>
 				
 								
