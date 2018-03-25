@@ -72,7 +72,7 @@ $errors=array();
 				<?php 
 
 				if (isset($_POST['save']) && ($_POST['password'] == $_POST['confirm_password'])) {
-					$first_name = pg_real_escape_string($connection,$_POST['first_name']);
+					$first_name = pg_escape_string($connection,$_POST['first_name']);
 					//$last_name = pg_real_escape_string($connection,$_POST['last_name']);
 					//$password = pg_real_escape_string($connection,$_POST['password']);
 					//$password = sha1($password);
