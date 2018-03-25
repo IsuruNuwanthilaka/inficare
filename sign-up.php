@@ -63,6 +63,8 @@ $errors=array();
 				<p><label for=""></label><a href="home.php"> Next Home Page > </a></p>
 
 				<?php
+				/*
+				
 				if (isset($_POST['save']) && ($_POST['password']!=$_POST['confirm_password'])) {
 					echo '<p class = "errormsg"> </label>Password not matched. Re-enter passwords </p>';
 				}elseif(isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
@@ -115,6 +117,7 @@ $errors=array();
 				}else{
 					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
 				}
+				*/
 				?>
 				
 								
