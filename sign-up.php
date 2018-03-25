@@ -79,7 +79,7 @@ $errors=array();
 					if($another_result){
 						
 						if (pg_num_rows($another_result)==0) {
-							$query = "INSERT INTO userdb(first_name,last_name,email,password,last_login,is_deleted) VALUES ($first_name,$last_name,$email,$password,'0000-00-00 00:00:00',0)";
+							$query = 'INSERT INTO userdb(first_name,last_name,email,password,last_login,is_deleted) VALUES ("{$first_name}","{$last_name}","{$email}","{$password}","0000-00-00 00:00:00",0)';
 							$result = pg_query($connection,$query);
 							if ($result) {
 								echo '<p class = "successmsg"> </label>Account created successfully. </p>';
