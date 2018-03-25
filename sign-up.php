@@ -60,7 +60,7 @@ $errors=array();
 					<label for="">&nbsp </label>
 					<button type="submit" name="save">Save</button>
 				</p>
-				<p><label for=""></label><a href="home.php"> Next Home Page > </a></p>
+				<p><label for=""></label><a href="index.php?id={$_SESSION['id']}"> Next Home Page > </a></p>
 
 				<?php
 				
@@ -96,6 +96,7 @@ $errors=array();
 										$user = pg_fetch_assoc($result_set);
 										$_SESSION['id'] = $user['id'];
 										$_SESSION['first_name'] = $user['first_name'];
+										echo 
 										$query = "UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
 										$result_set = pg_query($connection,$query);
 										if (!$result_set) {
