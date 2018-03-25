@@ -71,7 +71,7 @@ $errors=array();
 				
 				<?php 
 
-				if ($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
+				if (isset($_POST['save']) && ($_POST['password']==$_POST['confirm_password'])) {
 				 	echo '<p class = "errormsg"> </label>Passwordmatched </p>';
 				 } ?>
 
