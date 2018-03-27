@@ -1,7 +1,9 @@
 <?php
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
 
-  require("inc/PHPMailer.php");
- 
+  	require_once("inc/PHPMailer.php");
+ 	require_once("inc/SMTP.php");
 
     $mail = new PHPMailer\PHPMailer\PHPMailer;
 
