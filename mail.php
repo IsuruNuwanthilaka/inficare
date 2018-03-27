@@ -1,6 +1,6 @@
 <?php 
-require("inc/PHPMailer.php"); 
-require("inc/SMTP.php"); 
+include("inc/PHPMailer.php"); 
+include("inc/SMTP.php"); 
 use PHPMailer\PHPMailer\PHPMailer;
 
 	$mail = new PHPMailer;
