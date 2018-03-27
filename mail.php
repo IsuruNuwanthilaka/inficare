@@ -5,7 +5,7 @@
   	require_once("inc/PHPMailer.php");
  	require_once("inc/SMTP.php");
 
-    $mail = new PHPMailer\PHPMailer\PHPMailer;
+    $mail = new PHPMailer;
 
     $mail->isSMTP();
 
