@@ -1,4 +1,6 @@
 <?php 
+	require_once('inc/PHPMailer.php');
+	
 	$mail             = new PHPMailer();
 
 	$mail->IsSMTP();
