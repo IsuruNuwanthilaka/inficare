@@ -1,6 +1,8 @@
 <?php 
-	require_once('PHPMailer.php');
-	
+require_once('PHPmailer/class.phpmailer.php'); 
+?>
+
+<?php 
 	$mail             = new PHPMailer();
 
 	$mail->IsSMTP();
@@ -11,10 +13,10 @@
 	$mail->SMTPSecure = "tls";                 
 	$mail->Host       = "smtp.gmail.com";      // SMTP server
 	$mail->Port       = 587;                   // SMTP port
-	$mail->Username   = "";  // username
-	$mail->Password   = "";            // password
+	$mail->Username   = "infoatsoulmate@gmail.com";  // username
+	$mail->Password   = "950500085v";            // password
 
-	$mail->SetFrom('', 'Test');
+	$mail->SetFrom('infoatsoulmate@gmail.com');
 
 	$mail->Subject    = "I hope this works!";
 
@@ -28,4 +30,10 @@
 	} else {
 	  echo "Message sent!";
 	}
+
+
+
+
+
+
  ?>
