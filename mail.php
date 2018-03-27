@@ -1,16 +1,17 @@
 <?php
 
   require("/inc/PHPMailer.php");
-  require("/inc/SMTP.php");
+ 
 
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail = new PHPMailer\PHPMailer\PHPMailer;
+
     $mail->isSMTP();
 
     $mail->SMTPDebug = 1;
     $mail->SMTPAuth = true;
-    $mail->SMTPSecure = 'ssl';
+    $mail->SMTPSecure = 'tls';
     $mail->Host = "smtp.gmail.com";
-    $mail->Port = 465; // or 587
+    $mail->Port = 487; // or 587
     $mail->isHTML(true);
     $mail->Username = "infoatsoulmate@gmail.com";
     $mail->Password = "950500085v";
