@@ -13,8 +13,15 @@
 		while ($item = pg_fetch_assoc($items)) {
 			$item_list .= "<tr>";
 			$item_list .= "<td>{$item['item_id']}</td>";
+			$item_list .= "<td>{$item['item_name']}</td>";
 			$item_list .= "<td>{$item['item_description']}</td>";
-			$item_list .= "<td>{$item['is_request']}</td>";
+			if ($item['is_request']==0) {
+				$item_status = 'Request';
+			} else {
+				$item_status = 'Donation';
+			}
+			
+			$item_list .= "<td>{$item_status}</td>";
 			$item_list .= "<td><a href = \"apply-item.php?item_id={$item['item_id']}\">Apply</a></td>";
 			$item_list .= "</tr>";
 		}
@@ -42,6 +49,7 @@
 		<table class="masterlist">
 			<tr>
 				<th>Item No</th>
+				<th>Item Name</th>
 				<th>Description</th>
 				<th>Request/Donation</th>
 				<th>Apply</th>
