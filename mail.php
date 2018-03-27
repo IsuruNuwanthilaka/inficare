@@ -7,13 +7,13 @@ require("inc/SMTP.php");
 
 	$mail = new PHPMailer;
 
-	$mail->IsSMTP();
+	$mail->isSMTP();
 	$mail->SMTPDebug  = 2;
 	$mail->SMTPAuth   = true;
 	$mail->SMTPSecure = 'tls';                 
 	$mail->Host       = 'smtp.gmail.com';
 	$mail->Port       = 587; 
-	$mail->IsHTML(true);
+	$mail->isHTML(true);
 	$mail->Username   = "infoatsoulmate@gmail.com";
 	$mail->Password   = '950500085v';
 
@@ -24,7 +24,7 @@ require("inc/SMTP.php");
 	$mail->AltBody = "Hello";
 
 	$address = "isurunuwanthilaka@gmail.com";
-	$mail->AddAddress($address,'Isuru');
+	$mail->addAddress($address,'Isuru');
 
 	if(!$mail->send()) {
 	  echo "Mailer Error: " . $mail->ErrorInfo;
