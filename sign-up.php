@@ -60,7 +60,7 @@ $errors=array();
 					<label for="">&nbsp </label>
 					<button type="submit" name="save">Save</button>
 				</p>
-				<p><label for=""></label > <a href="index.php?id = {$_SESSION['id']}" >Next Home Page ></a></p>
+				<p><label for=""></label > <a href="home.php" >Next Home Page ></a></p>
 
 				<?php
 				
