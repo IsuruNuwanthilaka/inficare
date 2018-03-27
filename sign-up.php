@@ -102,11 +102,13 @@ $errors=array();
 										if (!$result_set) {
 											die('Try Again...');
 										}else{
-											$errors[] ="Invalid Username or Password";}
+											$errors[] ="Invalid Username or Password";
+										}
 									}else{
 										$errors[] = "Database query failed";
 									}
 								}
+								echo $_SESSION[];
 
 								echo '<p class = "successmsg"> </label>Account created successfully. </p>';
 								
