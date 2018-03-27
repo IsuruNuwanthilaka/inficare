@@ -1,11 +1,11 @@
 <?php 
-require_once('PHPmailer/class.phpmailer.php'); 
+require_once('PHPmailer.php'); 
 ?>
 
 <?php 
-echo "initiated process";
-	$mail             = new PHPMailer();
 
+	$mail             = new PHPMailer();
+    echo "initiated process";
 	$mail->IsSMTP();
 	$mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
 	                                           // 1 = errors and messages
@@ -17,7 +17,7 @@ echo "initiated process";
 	$mail->Username   = "infoatsoulmate@gmail.com";  // username
 	$mail->Password   = "950500085v";            // password
 
-	$mail->SetFrom('infoatsoulmate@gmail.com');
+	$mail->setFrom('infoatsoulmate@gmail.com');
 
 	$mail->Subject    = "I hope this works!";
 
