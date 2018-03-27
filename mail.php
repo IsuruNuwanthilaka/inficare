@@ -1,30 +1,28 @@
 <?php 
+require("inc/PHPMailer.php"); 
+require("inc/SMTP.php"); 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require("/inc/PHPMailer.php"); 
-require("/inc/SMTP.php"); 
+	$mail = new PHPMailer;
 
-echo "start process";
-
-	$mail = new PHPMailer ;
-echo "start class";
 	$mail->isSMTP();
-	$mail->SMTPDebug  = 2;
+	$mail->SMTPDebug  = 1;
 	$mail->SMTPAuth   = true;
-	$mail->SMTPSecure = 'tls';                 
-	$mail->Host       = 'smtp.gmail.com';
+	$mail->SMTPSecure = "tls";                 
+	$mail->Host       = "smtp.gmail.com";
 	$mail->Port       = 587; 
-	
+	$mail->isHTML(true);
 	$mail->Username   = "infoatsoulmate@gmail.com";
-	$mail->Password   = '950500085v';
+	$mail->Password   = "950500085v";
 
-	$mail->setFrom('infoatsoulmate@gmail.com','first');
+	$mail->setFrom('infoatsoulmate@gmail.com');
 
 	$mail->Subject = "I hope this works!";
-	$mail->AltBody = 'This is a plain-text message body';
+
+	$mail->Body = "Hello"
 
 	$address = "isurunuwanthilaka@gmail.com";
-	$mail->addAddress($address,'Isuru');
+	$mail->addAddress($address);
 
 	if(!$mail->send()) {
 	  echo "Mailer Error: " . $mail->ErrorInfo;
