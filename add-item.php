@@ -69,9 +69,9 @@ if (isset($_POST['save'])){
 				$is_request = 0;
 				if (isset($_POST['save'])) {
 					$is_request = (int)$_POST['status'];
-					$item_name = pq_escape_string($_POST['item_name']);
-					$item_description = pq_escape_string($_POST['item_description']);
-					$item_email = $_SESSION['email']
+					$item_name = pq_escape_string($connection,$_POST['item_name']);
+					$item_description = pq_escape_string($connection,$_POST['item_description']);
+					$item_email = $_SESSION['email'];
 
 					$query = 'INSERT INTO itemdb (item_description,item_name,item_email,is_request,is_donated) VALUES (\'';
 					$query .= $item_description.'\',\'';
