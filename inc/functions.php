@@ -9,10 +9,10 @@
 	$mail->SMTPSecure = "tls";                 
 	$mail->Host       = "smtp.gmail.com";      // SMTP server
 	$mail->Port       = 587;                   // SMTP port
-	$mail->Username   = "isumalabs@gmail.com";  // username
-	$mail->Password   = "Isuma@U0M";            // password
+	$mail->Username   = "infoatsoulmate@gmail.com";  // username
+	$mail->Password   = "950500085v";            // password
 
-	$mail->SetFrom('isumalabs@gmail.com', 'Test');
+	$mail->SetFrom('infoatsoulmate@gmail.com', 'Test');
 
 	$mail->Subject    = "I hope this works!";
 
