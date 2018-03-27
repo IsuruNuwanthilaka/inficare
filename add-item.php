@@ -56,7 +56,7 @@ $errors=array();
 				<?php 
 				$is_request = 0;
 				if (isset($_POST['save'])) {
-					$is_request = (int)$_POST['status'];
+					$is_request =$_POST['status'];
 					$item_name = pq_escape_string($connection,$_POST['item_name']);
 					$item_description = pq_escape_string($connection,$_POST['item_description']);
 					$item_email = $_SESSION['email'];

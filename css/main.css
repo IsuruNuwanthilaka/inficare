@@ -34,6 +34,7 @@ form.itemform input{
 }
 
 form.itemform button{
+	margin-top: 20px;
 	width: 200px
 }
 form.checkpin label{
