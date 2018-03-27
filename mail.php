@@ -1,8 +1,9 @@
 <?php 
 require("inc/PHPMailer.php"); 
 require("inc/SMTP.php"); 
+use PHPMailer\PHPMailer\PHPMailer;
 
-	$mail = new PHPMailer\PHPMailer\PHPMailer();
+	$mail = new PHPMailer;
 
 	$mail->IsSMTP();
 	$mail->SMTPDebug  = 1;
