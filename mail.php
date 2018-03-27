@@ -1,12 +1,12 @@
 <?php 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require "inc/PHPMailer.php"; 
-require "inc/SMTP.php"; 
+require("/inc/PHPMailer.php"); 
+require("/inc/SMTP.php"); 
 
 echo "start process";
 
-	$mail = new PHPMailer\PHPMailer\PHPMailer;
+	$mail = new PHPMailer\PHPMailer\PHPMailer ;
 echo "start class";
 	$mail->isSMTP();
 	$mail->SMTPDebug  = 2;
