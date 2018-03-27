@@ -61,10 +61,7 @@ $errors=array();
 					$query .= $item_email.'\',';
 					$query .= $is_request.',';
 					$query .= '2)';
-					echo "<p class = 'errormsg'>{$query}</p>";
-
 					$result = pg_query($connection,$query);
-
 					if ($result) {
 						echo '<p class = "successmsg"> Pending Admin Approval</p>';
 					}else{
