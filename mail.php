@@ -1,5 +1,5 @@
 <?php 
-require_once('inc/PHPmailer.php'); 
+require_once('inc/PHPMailer.php'); 
 ?>
 
 <?php 
