@@ -3,6 +3,7 @@ require_once('PHPmailer/class.phpmailer.php');
 ?>
 
 <?php 
+echo "initiated process";
 	$mail             = new PHPMailer();
 
 	$mail->IsSMTP();
@@ -34,6 +35,6 @@ require_once('PHPmailer/class.phpmailer.php');
 
 
 
-
+echo "end process";
 
  ?>
