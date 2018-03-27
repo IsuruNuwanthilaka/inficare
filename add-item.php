@@ -2,24 +2,12 @@
 <?php require_once('inc/connection.php'); ?>
 <?php 
 $errors=array();
-if (isset($_POST['save'])){
-	if (empty($_POST['first_name'])){
-		$errors = 'First name submitted';
-	}
-
-}
-
- ?>
+?>
 
 <?php 
 	if (!isset($_SESSION['id'])) {
 	header('Location:index.php');
 	} 
-
-	$user_list =" ";
-	$query = "SELECT * FROM userdb WHERE is_deleted = 0 ORDER BY first_name";
-	$users = pg_query($connection,$query);
-
 ?>	
 	
 
@@ -27,7 +15,7 @@ if (isset($_POST['save'])){
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Add New User</title>
+	<title>Add New Item</title>
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -81,6 +69,7 @@ if (isset($_POST['save'])){
 					$query .= '2)';
 
 					$result = pg_query($connection,$query);
+					echo $query;
 
 					if ($result) {
 						echo '<p class = "successmsg"> Pending Admin Approval</p>';
