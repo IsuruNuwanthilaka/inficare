@@ -1,7 +1,9 @@
 <?php 
+use PHPMailer\PHPMailer\PHPMailer;
+
 require("inc/PHPMailer.php"); 
 require("inc/SMTP.php"); 
-use PHPMailer\PHPMailer\PHPMailer;
+
 
 	$mail = new PHPMailer;
 
@@ -15,14 +17,14 @@ use PHPMailer\PHPMailer\PHPMailer;
 	$mail->Username   = "infoatsoulmate@gmail.com";
 	$mail->Password   = "950500085v";
 
-	$mail->setFrom('infoatsoulmate@gmail.com');
+	$mail->setFrom('infoatsoulmate@gmail.com','first');
 
 	$mail->Subject = "I hope this works!";
 
-	$mail->Body = "Hello"
+	$mail->Body = "Hello";
 
 	$address = "isurunuwanthilaka@gmail.com";
-	$mail->AddAddress($address);
+	$mail->AddAddress($address,'Isuru');
 
 	if(!$mail->Send()) {
 	  echo "Mailer Error: " . $mail->ErrorInfo;
