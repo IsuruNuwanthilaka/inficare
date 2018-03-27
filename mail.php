@@ -6,7 +6,7 @@ require("/inc/SMTP.php");
 
 echo "start process";
 
-	$mail = new PHPMailer\PHPMailer\PHPMailer ;
+	$mail = new PHPMailer ;
 echo "start class";
 	$mail->isSMTP();
 	$mail->SMTPDebug  = 2;
