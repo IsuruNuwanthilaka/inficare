@@ -1,5 +1,5 @@
 <?php 
-require_once('inc/PHPMailer.php'); 
+include_once('inc/PHPMailer.php'); 
 ?>
 
 <?php 
@@ -19,7 +19,7 @@ require_once('inc/PHPMailer.php');
 
 	$mail->setFrom('infoatsoulmate@gmail.com');
 
-	$mail->Subject    = "I hope this works!";
+	$mail->Subject = "I hope this works!";
 
 	$mail->MsgHTML('Blah');
 
