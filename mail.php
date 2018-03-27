@@ -2,36 +2,32 @@
 require("inc/PHPMailer.php"); 
 require("inc/SMTP.php"); 
 
-	$mail = new PHPMailer\PHPMailer\PHPMailer();
+$mail = new PHPMailer();
 
-	$mail->IsSMTP();
-	$mail->SMTPDebug  = 1;
-	$mail->SMTPAuth   = true;
-	$mail->SMTPSecure = "tls";                 
-	$mail->Host       = "smtp.gmail.com";
-	$mail->Port       = 587; 
-	$mail->IsHTML(true);
-	$mail->Username   = "infoatsoulmate@gmail.com";
-	$mail->Password   = "950500085v";
+$mail->IsSMTP();
+$mail->SMTPDebug  = 1;
+$mail->SMTPAuth   = true;
+$mail->SMTPSecure = "tls";                 
+$mail->Host       = "smtp.gmail.com";
+$mail->Port       = 587; 
+$mail->IsHTML(true);
+$mail->Username   = "infoatsoulmate@gmail.com";
+$mail->Password   = "950500085v";
 
-	$mail->SetFrom('infoatsoulmate@gmail.com');
+$mail->setFrom('infoatsoulmate@gmail.com');
 
-	$mail->Subject = "I hope this works!";
+$mail->Subject = "I hope this works!";
 
-	$mail->Body = "Hello"
+$mail->Body = "Hello"
 
-	$address = "isurunuwanthilaka@gmail.com";
-	$mail->AddAddress($address);
+$address = "isurunuwanthilaka@gmail.com";
+$mail->AddAddress($address);
 
-	if(!$mail->Send()) {
-	  echo "Mailer Error: " . $mail->ErrorInfo;
-	} else {
-	  echo "Message sent!";
-	}
+if(!$mail->Send()) {
+echo "Mailer Error: " . $mail->ErrorInfo;
 
-
-
-
-echo "end process";
+} else {
+echo "Message sent!";
+}
 
  ?>
