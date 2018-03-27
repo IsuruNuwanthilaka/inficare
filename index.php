@@ -33,7 +33,8 @@ require_once('inc/connection.php');
 	 				$user = pg_fetch_assoc($result_set);
 	 				$_SESSION['id'] = $user['id'];
 	 				$_SESSION['first_name'] = $user['first_name'];
-
+	 				$_SESSION['email'] = $user['email'];
+	 				
 	 				$query = "UPDATE userdb SET last_login = now() WHERE id = {$_SESSION['id']}";
 	 				$result_set = pg_query($connection,$query);
 	 				if (!$result_set) {

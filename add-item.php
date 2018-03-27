@@ -46,25 +46,52 @@ if (isset($_POST['save'])){
 			<form action="add-item.php" method="post" class="itemform">
 			
 				<p >
-					<label for="">First Name</label>
-					<input type="text" name="first_name_var" id="" required>
+					<label for="">Item Name</label>
+					<input type="text" name="item_name" id="" placeholder="Item name" required>
 				</p>
 				<p >
-					<label for="">Last Name</label>
-					<input type="text" name="last_name_var" id="" required>
+					<label for="">Item Description</label>
+					<input type="text" name="item_description" id="" placeholder="Small description about item" required>
 				</p>
-				<p >
-					<label for="">Email Address</label>
-					<input type="text" name="email_var" id="" required>
+				<p>
+					<label for=""> Item Status </label>
 				</p>
-				<p >
-					<label for="">Password</label>
-					<input type="password" name="password_var" id="" required>
-				</p>
+				<select name =  'status' >
+					 <option value='0' > Request </option>
+					 <option value='1' > Donate </option>
+				</select>
 				<p>
 					<label for="">&nbsp</label>
 					<button type="submit" name="save"> Save</button>
 				</p>
+
+				<?php 
+				$is_request = 0;
+				if (isset($_POST['save'])) {
+					$is_request = (int)$_POST['status'];
+					$item_name = pq_escape_string($_POST['item_name']);
+					$item_description = pq_escape_string($_POST['item_description']);
+					$item_email = $_SESSION['email']
+
+					$query = 'INSERT INTO itemdb (item_description,item_name,item_email,is_request,is_donated) VALUES (\'';
+					$query .= $item_description.'\',\'';
+					$query .= $item_name.'\',\'';
+					$query .= $item_email.'\',\'';
+					$query .= $is_request.'\',\'';
+					$query .= '2)';
+
+					$result = pg_query($connection,$query);
+
+					if ($result) {
+						echo '<p class = "successmsg"> Pending Admin Approval</p>';
+					}else{
+						echo '<p class = "errormsg"> Database Query Failed</p>';
+					}
+
+
+				}
+				?>
+
 			</form>
 		</div>
 	</main>
@@ -72,3 +99,4 @@ if (isset($_POST['save'])){
 </body>
 </html>
 <?php pg_close($connection);?>
+ 
