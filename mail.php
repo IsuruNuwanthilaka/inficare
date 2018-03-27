@@ -8,25 +8,25 @@ require("inc/SMTP.php");
 	$mail = new PHPMailer;
 
 	$mail->IsSMTP();
-	$mail->SMTPDebug  = 1;
+	$mail->SMTPDebug  = 2;
 	$mail->SMTPAuth   = true;
-	$mail->SMTPSecure = "tls";                 
-	$mail->Host       = "smtp.gmail.com";
+	$mail->SMTPSecure = 'tls';                 
+	$mail->Host       = 'smtp.gmail.com';
 	$mail->Port       = 587; 
 	$mail->IsHTML(true);
 	$mail->Username   = "infoatsoulmate@gmail.com";
-	$mail->Password   = "950500085v";
+	$mail->Password   = '950500085v';
 
 	$mail->setFrom('infoatsoulmate@gmail.com','first');
 
 	$mail->Subject = "I hope this works!";
 
-	$mail->Body = "Hello";
+	$mail->AltBody = "Hello";
 
 	$address = "isurunuwanthilaka@gmail.com";
 	$mail->AddAddress($address,'Isuru');
 
-	if(!$mail->Send()) {
+	if(!$mail->send()) {
 	  echo "Mailer Error: " . $mail->ErrorInfo;
 	} else {
 	  echo "Message sent!";
