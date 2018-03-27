@@ -64,10 +64,10 @@ $errors=array();
 					$query = 'INSERT INTO itemdb (item_description,item_name,item_email,is_request,is_donated) VALUES (\'';
 					$query .= $item_description.'\',\'';
 					$query .= $item_name.'\',\'';
-					$query .= $item_email.'\',\'';
-					$query .= $is_request.'\',\'';
+					$query .= $item_email.'\',';
+					$query .= $is_request.',';
 					$query .= '2)';
-					echo '<p class = "errormsg"> {$query}</p>';
+					echo "<p class = 'errormsg'>{$query}</p>";
 					$result = pg_query($connection,$query);
 
 					if ($result) {
