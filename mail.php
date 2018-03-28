@@ -13,7 +13,7 @@
     $mail->SMTPAuth = true;
     $mail->SMTPAutoTLS = false;
     $mail->SMTPSecure = 'tls';
-    $mail->Host = gethostbyname('smtp.gmail.com');
+    $mail->Host = gethostbyname('tls://smtp.gmail.com');
     $mail->Port = 587;
     $mail->isHTML(true);
     $mail->Username = "infoatsoulmate@gmail.com";
