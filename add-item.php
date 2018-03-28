@@ -67,7 +67,7 @@ $errors=array();
 					$result = pg_query($connection,$query);
 					if ($result) {
 						$subject = 'Pending Admin Approval';
-						$body = 'Thank your for your response.<br>'.'<b>ITEM DETAILS</b><br>'.'<b>Item Name : </b>'.$item_name.'<br><b>Item Description : </b>'.$item_description.'<br><b>Reference email : </b>'.$item_email;
+						$body = 'Thank you for your response.<br><br>'.'<b>ITEM DETAILS</b><br>'.'<b>Item Name : </b>'.$item_name.'<br><b>Item Description : </b>'.$item_description.'<br><b>Reference email : </b>'.$item_email.'<br><br> Your item will be online very soon.<br>isumacare team.';
 						sendMail($subject,$body,$_SESSION['email']);
 						echo '<p class = "successmsg"> Pending Admin Approval</p>';
 					}else{
