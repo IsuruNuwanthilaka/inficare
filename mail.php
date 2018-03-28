@@ -9,16 +9,16 @@
 
     $mail->isSMTP();
 
-    $mail->SMTPDebug = false;
+    $mail->SMTPDebug = 3;
     $mail->SMTPAuth = true;
     $mail->SMTPAutoTLS = false;
     $mail->SMTPSecure = 'tls';
     $mail->Host = gethostbyname('tls://smtp.gmail.com');
     $mail->Port = 587;
     $mail->isHTML(true);
-    $mail->Username = "infoatsoulmate@gmail.com";
+    $mail->Username = "info.isumacare@gmail.com";
     $mail->Password = "950500085v";
-    $mail->setFrom("infoatsoulmate@gmail.com");
+    $mail->setFrom("info.isumacare@gmail.com");
     $mail->Subject = "Test";
     $mail->Body = "hello";
     $mail->addAddress("isurunuwanthilaka@gmail.com");
