@@ -9,6 +9,7 @@ function sendMail($subject,$body,$address){
 	//sending emails
     $mail = new PHPMailer;
     $mail->isSMTP();
+    $mail->isHTML(true);
     $mail->SMTPDebug = false;
     $mail->SMTPAuth = true;
     $mail->SMTPAutoTLS = false;
@@ -18,7 +19,7 @@ function sendMail($subject,$body,$address){
     $mail->isHTML(true);
     $mail->Username = "info.isumacare@gmail.com";
     $mail->Password = "950500085v";
-    $mail->setFrom("info.isumacare@gmail.com");
+    $mail->setFrom("info.isumacare@gmail.com","IsumaCare APP");
     $mail->Subject = $subject;
     $mail->Body = $body;
     $mail->addAddress($address);
