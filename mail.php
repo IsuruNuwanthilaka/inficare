@@ -9,7 +9,7 @@
 
     $mail->isSMTP();
 
-    $mail->SMTPDebug = 3;
+    $mail->SMTPDebug = 1;
     $mail->SMTPAuth = true;
     $mail->SMTPAutoTLS = false;
     $mail->SMTPSecure = 'tls';
