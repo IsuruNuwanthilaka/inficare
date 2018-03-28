@@ -9,8 +9,9 @@
 
     $mail->isSMTP();
 
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 3;
     $mail->SMTPAuth = true;
+    $mail->SMTPAutoTLS = false;
     $mail->SMTPSecure = 'tls';
     $mail->Host = gethostbyname('smtp.gmail.com');
     $mail->Port = 587;
