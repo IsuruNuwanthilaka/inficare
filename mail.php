@@ -1,4 +1,5 @@
 <?php
+function sendMail(){
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 
@@ -28,4 +29,7 @@
      } else {
         echo "Message has been sent";
      }
+}
+
+sendMail();
 ?>
