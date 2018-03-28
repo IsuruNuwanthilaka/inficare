@@ -1,10 +1,12 @@
 <?php
-function sendMail(){
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-  	require_once("inc/PHPMailer.php");
- 	require_once("inc/SMTP.php");
+require_once("inc/PHPMailer.php");
+require_once("inc/SMTP.php");
+
+function sendMail(){
+	
 
     $mail = new PHPMailer;
 
