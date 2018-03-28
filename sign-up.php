@@ -103,7 +103,7 @@ $errors=array();
 											die('Try Again...');
 										}else{
 											$subject = 'Welcome';
-											$body = 'Hi'.$_SESSION['first_name'].' ! Your account created successfully. Now you can check donation.';
+											$body = 'Hi '.$_SESSION['first_name'].' ! Your account created successfully. Now you can check donations.';
 											sendMail($subject,$body,$_SESSION['email']);
 											echo '<p class = "successmsg"> </label>Account created successfully. </p>';
 										}

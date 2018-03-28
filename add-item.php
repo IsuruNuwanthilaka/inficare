@@ -1,5 +1,8 @@
 <?php session_start();?>
-<?php require_once('inc/connection.php'); ?>
+<?php 
+require_once('inc/connection.php');
+require_once('inc/functions.php');
+?>
 <?php 
 $errors=array();
 ?>
@@ -63,6 +66,9 @@ $errors=array();
 					$query .= '2)';
 					$result = pg_query($connection,$query);
 					if ($result) {
+						$subject = 'Pending Admin Approval';
+						$body = 'Thank your for your response.\n'.'ITEM DETAILS\n'.'Item Name : '.$item_name.'\nItem Description : '.$item_description.'\nReference email : '.$item_email;
+						sendMail($subject,$body,$_SESSION['email']);
 						echo '<p class = "successmsg"> Pending Admin Approval</p>';
 					}else{
 						echo '<p class = "errormsg"> Database Query Failed</p>';
