@@ -1,14 +1,13 @@
 <?php session_start();?>
-<?php require_once('inc/connection.php');
+<?php 
+require_once('inc/connection.php');
+require_once("inc/functions.php");
 ?>
+
 <?php 
 $email='';
 $errors=array();
- ?>
-
-
-
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +102,9 @@ $errors=array();
 										if (!$result_set) {
 											die('Try Again...');
 										}else{
+											$subject = 'Welcome';
+											$body = 'Hi'.$_SESSION['first_name'].' ! Your account created successfully. Now you can check donation.';
+											sendMail($subject,$body,$_SESSION['email']);
 											echo '<p class = "successmsg"> </label>Account created successfully. </p>';
 										}
 									}else{
