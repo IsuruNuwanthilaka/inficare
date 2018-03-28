@@ -74,11 +74,11 @@ if (!in_array($providerName, ['Google', 'Microsoft', 'Yahoo'])) {
 
 //These details are obtained by setting up an app in the Google developer console,
 //or whichever provider you're using.
-$clientId = 'RANDOMCHARS-----duv1n2.apps.googleusercontent.com';
-$clientSecret = 'RANDOMCHARS-----lGyjPcRtvP';
+$clientId = '613415645021-ugg4414t1ru95388hu4cornv6doqaj4h.apps.googleusercontent.com';
+$clientSecret = 'nKX35ZzHpFgXtRPwzT3uGkB3';
 
 //If this automatic URL doesn't work, set it yourself manually to the URL of this script
-$redirectUri = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+$redirectUri = 'https://isumacare.herokuapp.com/inc/get_oauth_token.php';
 //$redirectUri = 'http://localhost/PHPMailer/redirect';
 
 $params = [
