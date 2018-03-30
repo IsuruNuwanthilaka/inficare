@@ -61,10 +61,10 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-		<button onclick="apply()">Apply</button>
+		<button onclick="apply()" name="apply">Apply</button>
 		<script>
 		function apply() {
-    	<?php echo "phpshow"; ?>
+    	<?php echo '<p>phpshow</p>'; ?>
 		}		
 		</script>
 		</div>
