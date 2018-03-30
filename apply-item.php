@@ -61,7 +61,7 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-		<button onclick="apply()">Apply</button>
+		<button onclick="apply()" name="apply" >Apply</button>
 		<p id="msg"></p>
 		<script>
 		function apply() {
