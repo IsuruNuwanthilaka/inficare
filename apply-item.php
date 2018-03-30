@@ -46,7 +46,7 @@ if (!isset($_SESSION['id'])) {
 		<div class="loggedin"> Welcome <?php echo $_SESSION['first_name']; ?>! <a href="logout.php">Log Out</a></div>
 	</header>
 	<main>
-		<h1>Items <span><a href="home.php">< Back</a></span></h1>
+		<h1>Item Deatails <span><a href="home.php">< Back</a></span></h1>
 		<table class="masterlist">
 			<tr>
 				<th>Item No</th>
@@ -59,7 +59,9 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-
+		<form action="apply-item.php" method="POST">
+			<button type= 'submit' name="apply"> Apply </button>
+		</form>
 	</main>
 
 </body>
