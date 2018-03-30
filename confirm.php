@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 else{
 	$item_id = $_GET['item_id'];
 	$subject = 'Hey';
-	$body = "hi";
+	$body = "hi your request processing";
 	$address = $_SESSION['email'];
 	sendMail($subject,$body,$address);
 	header('home.php');

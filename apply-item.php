@@ -61,7 +61,9 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-		<a href="confirm.php?item_id={$item['item_id']}">Confirm</a>
+		<?php 
+			echo "<a href=\"confirm.php?item_id={$item['item_id']}\">Confirm</a>";
+		 ?>
 		</div>
 		
 	</main>
