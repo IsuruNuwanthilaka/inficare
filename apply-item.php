@@ -59,9 +59,12 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-		<form action="apply-item.php" method="POST">
+		<div>
+			<form action="apply-item.php" method="POST">
 			<button type= 'submit' name="apply"> Apply </button>
 		</form>
+		</div>
+		
 	</main>
 
 </body>
