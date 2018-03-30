@@ -21,18 +21,23 @@ if (!isset($_SESSION['id'])) {
 		$item_list .= "<td>{$item['item_id']}</td>";
 		$item_list .= "<td>{$item['item_name']}</td>";
 		$item_list .= "<td>{$item['item_description']}</td>";
+		if ($item['is_request']==0) {
+				$item_status = 'Request';
+			} else {
+				$item_status = 'Donation';
+			}
 		$item_list .= "<td>{$item_status}</td>";
 		$item_list .= "<td>{$item['item_email']}</td>";
 		$item_list .= "</tr>";
 	}
-	
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Home Page</title>
+	<title>Item Deatails</title>
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -41,7 +46,7 @@ if (!isset($_SESSION['id'])) {
 		<div class="loggedin"> Welcome <?php echo $_SESSION['first_name']; ?>! <a href="logout.php">Log Out</a></div>
 	</header>
 	<main>
-		<h1>Items <span><a href="add-item.php">+ Add New Item</a></span></h1>
+		<h1>Items <span><a href="home.php">< Back</a></span></h1>
 		<table class="masterlist">
 			<tr>
 				<th>Item No</th>
