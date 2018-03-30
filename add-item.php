@@ -69,6 +69,11 @@ $errors=array();
 						$subject = 'Pending Admin Approval';
 						$body = 'Thank you for your response.<br><br>'.'<b>ITEM DETAILS</b><br>'.'<b>Item Name : </b>'.$item_name.'<br><b>Item Description : </b>'.$item_description.'<br><b>Reference email : </b>'.$item_email.'<br><br> Your item will be online very soon.<br>isumacare team.';
 						sendMail($subject,$body,$_SESSION['email']);
+
+						$subject = 'IsumaCare : New Item Added for Approval';
+						$body = "user : ".$_SESSION['email']." added new item for approval.";
+						$address = "isurunuwanthilaka@gmail.com";
+						sendMail($subject,$body,$address);
 						echo '<p class = "successmsg"> Pending Admin Approval</p>';
 					}else{
 						echo '<p class = "errormsg"> Database Query Failed</p>';
