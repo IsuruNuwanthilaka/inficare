@@ -65,6 +65,7 @@ if (!isset($_SESSION['id'])) {
 		<p id="msg"></p>
 		<script>
 		function apply() {
+			<?php sendMail('hey','isuru','isurunuwanthilaka@gmail.com'); ?>
 		    document.getElementById("msg").innerHTML = "Submitted.Pending Admin Approval.";
 		}
 		</script>		
