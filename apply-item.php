@@ -61,15 +61,7 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-		<button onclick="apply()" name="apply" >Apply</button>
-		<p id="msg"></p>
-		<script>
-		function apply() {
-			<?php sendMail('hey','isuru','isurunuwanthilaka@gmail.com'); ?>
-		    document.getElementById("msg").innerHTML = "Submitted.Pending Admin Approval.";
-		}
-		</script>		
-		</script>
+		<a href="confirm.php?item_id={$item['item_id']}">Confirm</a>
 		</div>
 		
 	</main>
