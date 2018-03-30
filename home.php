@@ -22,7 +22,7 @@
 			}
 			
 			$item_list .= "<td>{$item_status}</td>";
-			$item_list .= "<td><a href = \"apply-item.php?item_id={$item['item_id']}\">Apply</a></td>";
+			$item_list .= "<td><a href = \"apply-item.php?item_id={$item['item_id']}\">Get Details</a></td>";
 			$item_list .= "</tr>";
 		}
 	} else {
@@ -52,7 +52,7 @@
 				<th>Item Name</th>
 				<th>Description</th>
 				<th>Request/Donation</th>
-				<th>Apply</th>
+				<th>Details</th>
 			</tr>
 
 			<?php echo $item_list; ?>
