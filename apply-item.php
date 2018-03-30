@@ -49,8 +49,7 @@ if (!isset($_SESSION['id'])) {
 		<h1>Item Deatails <span><a href="home.php">< Back</a></span></h1>
 		
 		<div>
-			<form action="apply-item.php" method="POST">
-			<table class="masterlist">
+		<table class="masterlist">
 			<tr>
 				<th>Item No</th>
 				<th>Item Name</th>
@@ -62,8 +61,12 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-		<button type= 'submit' name="apply"> Apply </button>
-		</form>
+		<button onclick="apply()">Apply</button>
+		<script>
+		function apply() {
+    	<?php echo "phpshow"; ?>
+		}		
+		</script>
 		</div>
 		
 	</main>
