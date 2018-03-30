@@ -47,7 +47,10 @@ if (!isset($_SESSION['id'])) {
 	</header>
 	<main>
 		<h1>Item Deatails <span><a href="home.php">< Back</a></span></h1>
-		<table class="masterlist">
+		
+		<div>
+			<form action="apply-item.php" method="POST">
+			<table class="masterlist">
 			<tr>
 				<th>Item No</th>
 				<th>Item Name</th>
@@ -59,9 +62,7 @@ if (!isset($_SESSION['id'])) {
 			<?php echo $item_list; ?>
 
 		</table>
-		<div>
-			<form action="apply-item.php" method="POST">
-			<button type= 'submit' name="apply"> Apply </button>
+		<button type= 'submit' name="apply"> Apply </button>
 		</form>
 		</div>
 		
