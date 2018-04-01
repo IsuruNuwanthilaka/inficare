@@ -15,8 +15,10 @@ $errors=array();
 	<meta charset="utf-8">
 	<title>Sign Up</title>
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
 </head>
 <body>
+	<div class= "container-fluid">
 	<header>
 		<div class="appname"> Donation Management System</div>
 		<div class="loggedin"> Welcome User!<a href="index.php">Sign in</a></div>
@@ -136,7 +138,7 @@ $errors=array();
 			
 		</div>
 	</main>
-
+	</div>
 </body>
 </html>
 
