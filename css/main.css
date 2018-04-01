@@ -3,7 +3,7 @@
 }
 body{
 	margin: 0;
-	background: url('image1.jpg');
+	background: url('img/image1.jpg');
 	background-size: 1440px 800px;
 	background-repeat:no-repeat;
     display: compact;
