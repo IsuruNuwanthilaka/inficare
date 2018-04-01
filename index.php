@@ -65,6 +65,7 @@ require_once('inc/connection.php');
 </head>
 <body>
 	<div class = 'login container-fluid'>
+		
 		<form action="index.php" method="post">
 			<fieldset>
 				<legend><h1>Log In</h1></legend>
