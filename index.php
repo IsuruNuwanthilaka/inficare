@@ -61,9 +61,10 @@ require_once('inc/connection.php');
 	<meta charset="utf-8">
 	<title>Log In - User Management System</title>
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
 </head>
 <body>
-	<div class = 'login'>
+	<div class = 'login container-fluid'>
 		<form action="index.php" method="post">
 			<fieldset>
 				<legend><h1>Log In</h1></legend>
