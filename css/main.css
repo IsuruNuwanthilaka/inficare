@@ -85,8 +85,16 @@ button{
 	box-sizing: border-box;
 
 }
+button.submit {
+	width: 100%;
+	padding: 5px;
+	margin-top: 20px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+}
 label.notempty{
-	background: #aaa;
 	height: 10px;
 	padding: 8px;
 
