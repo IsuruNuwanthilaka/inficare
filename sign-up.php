@@ -124,12 +124,6 @@ $errors=array();
 					}else{
 						echo '<p class = "errormsg"> </label>Database Query Failed Again.</p>';
 					}
-
-					
-
-								
-				}else{
-					echo '<p class = "pinmsg" > </label> Complete above fields first. </p>';
 				}
 				?>
 				
